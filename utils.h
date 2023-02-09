@@ -21,9 +21,5 @@ typedef struct
     unsigned long long int guestnice;
 } stats_t;
 
-float Calculate_Percentage(stats_t* s, unsigned long long int* prev_idle,
+double Calculate_Percentage(stats_t* s, unsigned long long int* prev_idle,
  unsigned long long int* prev_total );
-
-void *Reader(void *arg);
-void *Analyzer(void *arg);
-void* Printer(void *arg);

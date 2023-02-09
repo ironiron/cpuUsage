@@ -1,13 +1,10 @@
 #!/bin/bash
 
 
-cmake -S . -B build
-cmake --build build
+cmake -S . -B debug -DTARGET=Debug
+cmake --build debug
 if [ $? -eq 0 ]; then
-    ./build/cpuUsage
+    ./debug/cpuUsage
 else
     echo BUILDING COMMAND FAILED
 fi
-
-#./build/cpuUsage
-

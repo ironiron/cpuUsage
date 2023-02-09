@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include "utils.h"
 
-float Calculate_Percentage(stats_t* s, unsigned long long int* prev_idle,
+double Calculate_Percentage(stats_t* s, unsigned long long int* prev_idle,
  unsigned long long int* prev_total )
 {
     while(1)
@@ -17,11 +17,11 @@ float Calculate_Percentage(stats_t* s, unsigned long long int* prev_idle,
 
         if(totald==0)
         {
-            return 0.0;
+            return (double)0.0;
         }
         else
         {
-            return 100.0*(totald-idled)/totald;
+            return 100.0*(double)(totald-idled)/(double)totald;
         }
-    }
+    } 
 }

@@ -8,6 +8,3 @@ if [ $? -eq 0 ]; then
 else
     echo BUILDING COMMAND FAILED
 fi
-
-#./build/cpuUsage
-
