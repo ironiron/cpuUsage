@@ -17,5 +17,7 @@ for memory leak analysis:
 ```
 **NOTE** Clang has problems with Valgrind (tested on 14.0.0) It is strongly advised to compile with gcc.
 
+**NOTE 2** Tested on Ubuntu 22.04 and Debian 11
+
 ### Author
 Rafał Mazurkiewicz

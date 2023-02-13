@@ -15,6 +15,7 @@ if("${TARGET}" STREQUAL "Debug")
 endif()
 
 target_compile_options(cpuUsage PRIVATE -g -O0)
+target_link_libraries(cpuUsage PRIVATE pthread)
 
 if(CMAKE_C_COMPILER_ID STREQUAL "Clang")
   target_compile_options(cpuUsage PRIVATE -Weverything -Wno-declaration-after-statement -Wno-padded -Wno-disabled-macro-expansion)
