@@ -3,8 +3,8 @@ cmake_minimum_required(VERSION 3.10)
 project(cpuUsage LANGUAGES C)
 
 set(CMAKE_C_STANDARD 11)
-set(CMAKE_C_EXTENSIONS OFF)
-set(CMAKE_C_STANDARD_REQUIRED ON)
+set(CMAKE_C_EXTENSIONS ON)
+set(CMAKE_C_STANDARD_REQUIRED OFF)
 
 if("${TARGET}" STREQUAL "unit_tests")
     add_executable(cpuUsage unit_tests.c utils.c utils.h)

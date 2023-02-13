@@ -1,6 +1,9 @@
 #include <stdio.h>
 #include "utils.h"
 
+static bool is_alive[THREADS_NBR];
+
+
 double Calculate_Percentage(stats_t* s, unsigned long long int* prev_idle,
  unsigned long long int* prev_total )
 {
@@ -24,4 +27,22 @@ double Calculate_Percentage(stats_t* s, unsigned long long int* prev_idle,
             return 100.0*(double)(totald-idled)/(double)totald;
         }
     } 
+}
+
+void Send_Thread_Alive_Sig(task_t t)
+{
+    assert(t<THREADS_NBR);
+    is_alive[t]=true;
+}
+
+bool Get_Thread_Alive_Status(task_t t) 
+{
+    assert(t<THREADS_NBR);
+    return is_alive[t];
+}
+
+void Clear_Thread_Alive_Status(task_t t) 
+{
+    assert(t<THREADS_NBR);
+    is_alive[t]=false;
 }
