@@ -1,7 +1,15 @@
+/**
+ ******************************************************************************
+ * @file    utils.h
+ * @author  Rafał Mazurkiewicz
+ * @brief   Utilities source file
+ ******************************************************************************
+ */
+
 #include <stdio.h>
 #include "utils.h"
 
-static bool is_alive[THREADS_NBR];
+static bool is_alive[THREADS_NBR]; ///< Holds status flags of threads
 
 
 double Calculate_Percentage(stats_t* s, unsigned long long int* prev_idle,
@@ -18,7 +26,7 @@ double Calculate_Percentage(stats_t* s, unsigned long long int* prev_idle,
         *prev_idle=idle;
         *prev_total=total;
 
-        if(totald==0)
+        if(totald==0) // to prevent divide by zero error
         {
             return (double)0.0;
         }

@@ -1,9 +1,9 @@
 #include <stdio.h>
 #include "utils.h"
 
-stats_t stats[10];
+static stats_t stats[10];
 
-void test_Calculate_Percentage_for_first_run(void)
+static void test_Calculate_Percentage_for_first_run(void)
 {
     stats[0].user = 10;
     stats[0].nice = 10;
@@ -18,13 +18,13 @@ void test_Calculate_Percentage_for_first_run(void)
 
     unsigned long long int prev_total = 0;
     unsigned long long int prev_idle = 0;
-    float res = Calculate_Percentage(stats, &prev_idle, &prev_total);
+    double res = Calculate_Percentage(stats, &prev_idle, &prev_total);
     assert(prev_idle == 20);  // 10+10
     assert(prev_total == 80); // 8*10 (without quest and guestnice)
     assert(res > 74 && res < 76);
 }
 
-void test_Calculate_Percentage_for_consecutive_runs(void)
+static void test_Calculate_Percentage_for_consecutive_runs(void)
 {
     stats[0].user = 10;
     stats[0].nice = 10;
@@ -39,7 +39,7 @@ void test_Calculate_Percentage_for_consecutive_runs(void)
 
     unsigned long long int prev_total = 0;
     unsigned long long int prev_idle = 0;
-    float res = 0.0;
+    double res = 0.0;
     res = Calculate_Percentage(stats, &prev_idle, &prev_total);
     assert(prev_idle == 20);  // 10+10
     assert(prev_total == 80); // 8*10 (without quest and guestnice)
